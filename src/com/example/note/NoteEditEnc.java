@@ -169,7 +169,7 @@ public class NoteEditEnc extends Activity{
 	    		saveState();
 	    		finish();
 	    		
-		    case R.id.menu_changePasword:
+		    case R.id.menu_changePassword:
 	    		//Add password
 	    		finish();
 	    		

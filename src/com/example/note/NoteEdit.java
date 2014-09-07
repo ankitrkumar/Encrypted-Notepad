@@ -13,12 +13,18 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class NoteEdit extends Activity{
@@ -170,11 +176,85 @@ public class NoteEdit extends Activity{
 	    		finish();
 	    		
 		    case R.id.menu_addPassword:
-	    		//add password;
-	    		finish();
+	    		addPassword();
+	    		//finish();
 		    default:
 		    	return super.onOptionsItemSelected(item);
 		    }
+		}
+		
+		private void addPassword()
+		{/*
+     		AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+			alert.setTitle("Add Password");
+			alert.setMessage("Enter a secure password");
+
+				
+			// Set an EditText view to get user input 
+			
+			final EditText input = new EditText(this);
+			alert.setView(input);
+			final EditText input2 = new EditText(this);
+			alert.setView(input2);
+
+			alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+			  Editable value = input.getText();
+			  Editable value2 = input2.getText();
+			  // Do something with value!
+			  if (value.equals(value2))
+			  Toast.makeText(getApplicationContext(), value, 
+					   Toast.LENGTH_LONG).show();
+			  else
+				  Toast.makeText(getApplicationContext(), "Wrong password", 
+						   Toast.LENGTH_LONG).show();
+			  }
+			});
+
+			alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			  public void onClick(DialogInterface dialog, int whichButton) {
+			    // Canceled.
+			  }
+			});
+
+			alert.show();
+			*/
+			 LayoutInflater factory = LayoutInflater.from(this);
+			 final View textEntryView = factory.inflate(R.layout.new_password, null);
+			 //text_entry is an Layout XML file containing two text field to display in alert dialog
+			 final EditText input1 = (EditText) textEntryView.findViewById(R.id.type_pass);
+			 final EditText input2 = (EditText) textEntryView.findViewById(R.id.retype_pass);             
+			 input1.setText("", TextView.BufferType.EDITABLE);
+			 input2.setText("", TextView.BufferType.EDITABLE);
+			 final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+			 alert.setTitle("Set Password")
+			      .setView(textEntryView)
+			      .setPositiveButton("Save", 
+			          new DialogInterface.OnClickListener() {
+			              public void onClick(DialogInterface dialog, int whichButton) {
+			                     Log.i("AlertDialog","TextEntry 1 Entered "+input1.getText().toString());
+			                     Log.i("AlertDialog","TextEntry 2 Entered "+input2.getText().toString());
+			                  
+			                  Editable value = input1.getText();
+			       			  Editable value2 = input2.getText();
+			       			  if (value.toString().equals(value2.toString()))
+			       			  Toast.makeText(getApplicationContext(), value, 
+			       					   Toast.LENGTH_LONG).show();
+			       			  else
+			       				  Toast.makeText(getApplicationContext(), "Wrong password", 
+			       						   Toast.LENGTH_LONG).show();
+			              }
+			          })
+			      .setNegativeButton("Cancel",
+			          new DialogInterface.OnClickListener() {
+			              public void onClick(DialogInterface dialog,
+			                     int whichButton) {
+			              }
+			          });
+			 alert.show();
+
 		}
 	    
 	    private void saveState() {

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
      <item android:id="@+id/menu_save"
-          android:icon="@drawable/ic_menu_save"
           android:alphabeticShortcut='s'
           android:title="@string/save_menu_noteedit"
           android:showAsAction="ifRoom|withText" />
-     <item android:id="@+id/menu_changePasword"
-          android:icon="@drawable/ic_menu_save"
+     <item android:id="@+id/menu_changePassword"
           android:alphabeticShortcut='s'
           android:title="@string/changePassword_menu_noteedit"
           android:showAsAction="ifRoom|withText" />
      <item android:id="@+id/menu_rmvPassword"
-          android:icon="@drawable/ic_menu_save"
           android:alphabeticShortcut='s'
           android:title="@string/rmvPassword_menu_noteedit"
           android:showAsAction="ifRoom|withText" />    
