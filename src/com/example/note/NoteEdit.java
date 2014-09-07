@@ -182,14 +182,14 @@ public class NoteEdit extends Activity{
 	        String body = mBodyText.getText().toString();
 
 	        if(mRowId == null){
-	        	long id = mDbHelper.createNote(title, body, curDate, null);
+	        	long id = mDbHelper.createNote(title, body, curDate, (byte)111);
 	        	if(id > 0){
 	        		mRowId = id;
 	        	}else{
 	        		Log.e("saveState","failed to create note");
 	        	}
 	        }else{
-	        	if(!mDbHelper.updateNote(mRowId, title, body, curDate, null)){
+	        	if(!mDbHelper.updateNote(mRowId, title, body, curDate, (byte)1111)){
 	        		Log.e("saveState","failed to update note");
 	        	}
 	        }
