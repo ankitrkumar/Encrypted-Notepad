@@ -144,22 +144,6 @@ public class NoteEdit extends Activity{
 		@Override
 		public boolean onOptionsItemSelected(MenuItem item) {
 		    switch (item.getItemId()) {
-		    case R.id.menu_about:
-		          
-		    	/* Here is the introduce about myself */	    	
-		        AlertDialog.Builder dialog = new AlertDialog.Builder(NoteEdit.this);
-		        dialog.setTitle("About");
-		        dialog.setMessage("Encypted Notepad");
-		        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-					
-		        	   @Override
-		        	   public void onClick(DialogInterface dialog, int which) {
-		        		   dialog.cancel();
-						
-		        	   }
-		           });
-		           dialog.show();	           
-		           return true;
 		    case R.id.menu_delete:
 				if(note != null){
 	    			note.close();
@@ -171,16 +155,15 @@ public class NoteEdit extends Activity{
 	    		finish();
 		    	
 		        return true;
-		    case R.id.menu_save:
-	    		saveState();
-	    		finish();
-	    		
 		    case R.id.menu_addPassword:
 	    		addPassword();
-	    		//finish();
-		    default:
-		    	return super.onOptionsItemSelected(item);
+	    		break;
+	    		
+		    case R.id.menu_save:
+	    		saveState();
+	    		break;
 		    }
+		    return super.onOptionsItemSelected(item);
 		}
 		
 		private void addPassword()
